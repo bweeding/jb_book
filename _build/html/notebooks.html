@@ -428,16 +428,23 @@ or see <a class="reference external" href="https://myst-parser.readthedocs.io/en
 For example, here’s some sample Matplotlib code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xyzservices.providers</span> <span class="k">as</span> <span class="nn">xyz</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import xyzservices.providers as xyz</span>
 
-<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="c1"># from bokeh.plotting import figure, show</span>
 
-<span class="c1"># range bounds supplied in web mercator coordinates</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">x_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2000000</span><span class="p">,</span> <span class="mi">6000000</span><span class="p">),</span> <span class="n">y_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1000000</span><span class="p">,</span> <span class="mi">7000000</span><span class="p">),</span>
-           <span class="n">x_axis_type</span><span class="o">=</span><span class="s2">&quot;mercator&quot;</span><span class="p">,</span> <span class="n">y_axis_type</span><span class="o">=</span><span class="s2">&quot;mercator&quot;</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_tile</span><span class="p">(</span><span class="n">xyz</span><span class="o">.</span><span class="n">OpenStreetMap</span><span class="o">.</span><span class="n">Mapnik</span><span class="p">)</span>
+<span class="c1"># # range bounds supplied in web mercator coordinates</span>
+<span class="c1"># p = figure(x_range=(-2000000, 6000000), y_range=(-1000000, 7000000),</span>
+<span class="c1">#            x_axis_type=&quot;mercator&quot;, y_axis_type=&quot;mercator&quot;)</span>
+<span class="c1"># p.add_tile(xyz.OpenStreetMap.Mapnik)</span>
 
-<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="c1"># show(p)</span>
 </pre></div>
 </div>
 </div>
