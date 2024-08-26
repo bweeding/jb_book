@@ -1,11 +1,8 @@
-# Welcome to your Duck mapper
+# Behold the Duck Mapper 3000
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+Hi Pete, and welcome to your very own Duck Mapper 3000. 
 
-Check out the content pages bundled with this sample book to see more.
+Click {doc}`here </notebooks.ipynb>` to see where your duck has been.
 
 ```{tableofcontents}
 ```
