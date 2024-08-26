@@ -18,17 +18,36 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import plotly.express as px
-data = px.data.iris()
+```{code-cell}
+:tags: ["hide-input"]
+        
+import pandas as pd
+import pyproj
 
+from bokeh.plotting import figure, show, output_notebook, ColumnDataSource
+output_notebook()
+
+occ = pd.read_csv('occ.csv',index_col=0)
+
+psource = ColumnDataSource(pd.DataFrame(pyproj.transform(pyproj.Proj(init='epsg:4326'), pyproj.Proj(init='epsg:3857'), occ['lon'], occ['lat'])).transpose().rename(columns={0:'x',1:'y'}))
+
+# range bounds supplied in web mercator coordinates
+p = figure(x_range=(-2000000, 2000000), y_range=(100000, 700000),
+           x_axis_type="mercator", y_axis_type="mercator")
+
+p.add_tile("CartoDB Positron", retina=False)
+
+p.circle('x', 'y', source=psource, color='red', size=10)
+
+show(p)
+
+```
 ------------------
 
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mplotly[39;00m[38;5;21;01m.[39;00m[38;5;21;01mexpress[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpx[39;00m
-[1;32m      2[0m data [38;5;241m=[39m px[38;5;241m.[39mdata[38;5;241m.[39miris()
+[0;36m  Cell [0;32mIn[1], line 1[0;36m[0m
+[0;31m    ```{code-cell}[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-[0;31mModuleNotFoundError[0m: No module named 'plotly'
 
