@@ -5,3 +5,6 @@ bokeh
 plotly
 pandas
 pyproj
+cartopy
+xarray
+hvplot
