@@ -20,10 +20,10 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 ------------------
 ds = xr.open_dataarray('wc2.1_10m_elev.tif')
 ds = ds.sel(band=1)
-ele_plot = ds.hvplot(x='x',y='y',width=1000,height=500)
+ele_plot = ds.hvplot(x='x',y='y',width=1000,height=500);
 
 dfp = pd.read_csv('occ.csv',index_col=0)
-loc_plot = dfp.hvplot.scatter(x='lon',y='lat')
+loc_plot = dfp.hvplot.scatter(x='lon',y='lat');
 
 dfp*loc_plot
 ------------------
@@ -31,12 +31,12 @@ dfp*loc_plot
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAttributeError[0m                            Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1535691/443658893.py[0m in [0;36m?[0;34m()[0m
+[0;32m/tmp/ipykernel_1535787/799788783.py[0m in [0;36m?[0;34m()[0m
 [1;32m      2[0m [0mds[0m [0;34m=[0m [0mds[0m[0;34m.[0m[0msel[0m[0;34m([0m[0mband[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0mele_plot[0m [0;34m=[0m [0mds[0m[0;34m.[0m[0mhvplot[0m[0;34m([0m[0mx[0m[0;34m=[0m[0;34m'x'[0m[0;34m,[0m[0my[0m[0;34m=[0m[0;34m'y'[0m[0;34m,[0m[0mwidth[0m[0;34m=[0m[0;36m1000[0m[0;34m,[0m[0mheight[0m[0;34m=[0m[0;36m500[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mele_plot[0m [0;34m=[0m [0mds[0m[0;34m.[0m[0mhvplot[0m[0;34m([0m[0mx[0m[0;34m=[0m[0;34m'x'[0m[0;34m,[0m[0my[0m[0;34m=[0m[0;34m'y'[0m[0;34m,[0m[0mwidth[0m[0;34m=[0m[0;36m1000[0m[0;34m,[0m[0mheight[0m[0;34m=[0m[0;36m500[0m[0;34m)[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      4[0m [0;34m[0m[0m
 [1;32m      5[0m [0mdfp[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'occ.csv'[0m[0;34m,[0m[0mindex_col[0m[0;34m=[0m[0;36m0[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 6[0;31m [0mloc_plot[0m [0;34m=[0m [0mdfp[0m[0;34m.[0m[0mhvplot[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mx[0m[0;34m=[0m[0;34m'lon'[0m[0;34m,[0m[0my[0m[0;34m=[0m[0;34m'lat'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0mloc_plot[0m [0;34m=[0m [0mdfp[0m[0;34m.[0m[0mhvplot[0m[0;34m.[0m[0mscatter[0m[0;34m([0m[0mx[0m[0;34m=[0m[0;34m'lon'[0m[0;34m,[0m[0my[0m[0;34m=[0m[0;34m'lat'[0m[0;34m)[0m[0;34m;[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      7[0m [0;34m[0m[0m
 [1;32m      8[0m [0mdfp[0m[0;34m*[0m[0mloc_plot[0m[0;34m[0m[0;34m[0m[0m
 
