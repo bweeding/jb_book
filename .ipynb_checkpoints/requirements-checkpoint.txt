@@ -1,0 +1,10 @@
+jupyter-book
+matplotlib
+numpy
+bokeh
+plotly
+pandas
+pyproj
+cartopy
+xarray
+hvplot
