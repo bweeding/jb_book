@@ -1,0 +1,56 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/aciar/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/anaconda3/envs/aciar/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/aciar/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/aciar/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/envs/aciar/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/anaconda3/envs/aciar/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/anaconda3/envs/aciar/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import pandas as pd
+
+import cartopy.crs as ccrs
+import hvplot.xarray
+import hvplot.pandas
+import xarray as xr
+from bokeh.plotting import figure, show, output_notebook
+
+output_notebook()
+
+ds = xr.open_dataarray('wc2.1_10m_elev.tif')
+ds = ds.sel(band=1)
+
+
+dfp = pd.read_csv('occ.csv',index_col=0)
+
+p=ds.hvplot(x='x',y='y',width=1000,height=500)*dfp.hvplot.scatter(x='lon',y='lat')
+
+p.show()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[1], line 19[0m
+[1;32m     15[0m dfp [38;5;241m=[39m pd[38;5;241m.[39mread_csv([38;5;124m'[39m[38;5;124mocc.csv[39m[38;5;124m'[39m,index_col[38;5;241m=[39m[38;5;241m0[39m)
+[1;32m     17[0m p[38;5;241m=[39mds[38;5;241m.[39mhvplot(x[38;5;241m=[39m[38;5;124m'[39m[38;5;124mx[39m[38;5;124m'[39m,y[38;5;241m=[39m[38;5;124m'[39m[38;5;124my[39m[38;5;124m'[39m,width[38;5;241m=[39m[38;5;241m1000[39m,height[38;5;241m=[39m[38;5;241m500[39m)[38;5;241m*[39mdfp[38;5;241m.[39mhvplot[38;5;241m.[39mscatter(x[38;5;241m=[39m[38;5;124m'[39m[38;5;124mlon[39m[38;5;124m'[39m,y[38;5;241m=[39m[38;5;124m'[39m[38;5;124mlat[39m[38;5;124m'[39m)
+[0;32m---> 19[0m [43mp[49m[38;5;241;43m.[39;49m[43mshow[49m()
+
+File [0;32m/opt/anaconda3/envs/aciar/lib/python3.11/site-packages/holoviews/core/tree.py:272[0m, in [0;36mAttrTree.__getattr__[0;34m(self, identifier)[0m
+[1;32m    270[0m     [38;5;28;01mreturn[39;00m child_tree
+[1;32m    271[0m [38;5;28;01melse[39;00m:
+[0;32m--> 272[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00m[38;5;28mtype[39m([38;5;28mself[39m)[38;5;241m.[39m[38;5;18m__name__[39m[38;5;132;01m!r}[39;00m[38;5;124m object has no attribute [39m[38;5;132;01m{[39;00midentifier[38;5;132;01m}[39;00m[38;5;124m.[39m[38;5;124m'[39m)
+
+[0;31mAttributeError[0m: 'Overlay' object has no attribute show.
+
